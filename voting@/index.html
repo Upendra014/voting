@@ -1,0 +1,96 @@
+<html>
+<head>
+    <title>Online Polling System</title>
+  
+    <style>
+        body {
+            background-image: url('background3.jpeg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+            height: 100vh;
+            width: 100vw;
+        }
+        nav {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #191819;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .content {
+            display: none;
+            background-color: rgba(254, 251, 251, 0.964);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .active {
+            display: block;
+        }
+        #home {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+
+<nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('login')">Login</button>
+</nav>
+
+<div id="home" class="content active">
+    <h1>Welcome to the Online Voting System</h1>
+    <p>Your voice matters! Participate in polls easily.</p>
+</div>
+
+
+<div id="login" class="content">
+    <h1>Login</h1>
+    <form action="login.php" method="POST">
+        <input type="email" name="email" placeholder="Email" required><br><br>
+        <input type="password" name="password" placeholder="Password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+    
+</div>
+</div>
+
+<script>
+    function showPage(pageId) {
+        const contents = document.querySelectorAll('.content');
+        contents.forEach(content => content.classList.remove('active'));
+
+        document.getElementById(pageId).classList.add('active');
+    }
+
+    function loginUser() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        if (username && password) {
+            
+            window.location.href = "pollinpage.html";
+            return false; 
+        } else {
+            alert("Please enter valid login credentials.");
+            return false;
+        }
+    }
+</script>
+</body> 
+</html>
